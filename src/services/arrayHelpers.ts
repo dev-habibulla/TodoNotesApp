@@ -9,6 +9,13 @@ export function removeItem<T>(
   return array.filter((item) => !predicate(item));
 }
 
+export function removeItemById<T extends { id: string }>(
+  array: T[],
+  id: string
+): T[] {
+  return array.filter((item) => item.id !== id);
+}
+
 export function updateItem<T>(
   array: T[],
   predicate: (item: T) => boolean,

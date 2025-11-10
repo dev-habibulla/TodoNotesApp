@@ -1,6 +1,6 @@
 import { useState, useCallback, useEffect } from 'react';
 import { Note } from '../models/Note';
-import { addItem, removeItem, updateItem } from '../services/arrayHelpers';
+import { addItem, removeItemById, updateItem } from '../services/arrayHelpers';
 import { saveNotes, loadNotes } from '../services/storageService';
 
 export class NotesViewModel {
@@ -31,7 +31,7 @@ export class NotesViewModel {
   }
 
   static deleteNote(currentNotes: Note[], id: string): Note[] {
-    return removeItem(currentNotes, (note) => note.id === id);
+    return removeItemById(currentNotes, id);
   }
 }
 
